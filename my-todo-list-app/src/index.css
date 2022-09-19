@@ -1,0 +1,60 @@
+.Contenedor {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-auto-rows: minmax(min-content, max-content);
+  margin: 70px auto;
+  background: #ececec; 
+  width:fit-content;
+  min-width: 500px;
+  min-height: 500px;
+}
+
+.Titulo {
+  font-size: x-large;
+  height: fit-content;
+  margin: 20px;
+}
+
+.to-do-list {
+  background: #fff;
+  font-size: 15px;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+.button_add {
+  background-color: #555555;
+  color: #ececec;
+  margin: 10px;
+  transition-duration: 0.4s;
+}
+
+.button_add:hover {
+  background-color: white;
+  color: black;
+}
+
+.button_delete {
+  background-color: #555555;
+  color: #ececec;
+  margin: 10px 0px;
+  transition-duration: 0.4s;
+}
+
+.button_delete:hover {
+  background-color: white;
+  color: black;
+}
+
+.Nuevo_elemento_txt {
+  display: inline;
+}
+
+.Elementos_lista {
+  margin: 10px;
+}
+
