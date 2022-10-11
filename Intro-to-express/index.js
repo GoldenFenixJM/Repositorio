@@ -41,7 +41,81 @@ app.post ('/create', async (req, res) => {
   }
 });
 
+app.get('/get-movies', async (req, res) => {
+  try {
+    const moviesDb=await db.collection('movies').get();
+    console.log('moviesDb', moviesDb);
+    const resp= moviesDb.docs.map(doc=>doc.data());
+    res.send({
+      resp
+    });
+  } catch (error) {
+    res.send(error);
+  }
+});
 
+
+app.get ('/get-movie/:id', async (req, res) => {
+  try{
+    
+    const {params: {id}}=req;
+    const moviesDb=db.collection('movies').doc(id);
+    const {_fieldsProto: {time, author, name, rating}}=await moviesDb.get()
+    
+res.send({
+      status: 200,
+      time: time.stringValue,
+      author: author.stringValue,
+      name: name.stringValue,
+      rating: rating.integerValue
+
+    })
+    const response = await moviesDb.get();
+  }catch(error){
+    res.send(error);
+  }
+})
+//delete
+app.delete ('/delete-movie/:id', async (req, res) => {
+  try{
+    const {params: {id}}=req;
+    const moviesDb=db.collection('movies').doc(id);
+    await moviesDb.delete();
+    res.send({
+      status: 200});
+  }catch (error) {
+    res.send(error);
+  }
+});
+
+app.put ('/update-movie', async (req, res) => {
+
+  try {    
+    const {body: movie}=req;
+    const {id, time, author, name, rating}=movie;
+    const moviesDb=db.collection('movies').doc (id);
+    const resp=await moviesDb.update({
+      name,
+      time,
+      author,
+      rating
+    });
+    res.send({
+      status: 200,
+      id,
+    })
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+
+//Get-movies
+
+
+//Tell app to listen for new calls and sleep when none are coming
 app.listen(apiport, () => console.log(`Server running on port ${apiport}`));
+
+
 
  
