@@ -12,9 +12,6 @@
 }
 
 
-
-
-
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -27,6 +24,7 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+
 .boton_borrar
 {
   background-color: #008CBA;
@@ -45,5 +43,6 @@
     transform: rotate(360deg);
   }
 }
+
 
 

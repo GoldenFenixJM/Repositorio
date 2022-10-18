@@ -18,10 +18,12 @@ const Formulario = () => {
         
     }
 
+
     const enviarDatos = (event) => {
         event.preventDefault()
 //Mostrando datos
         console.log(datos.nombre + ' ' + datos.apellido + ' ' + datos.apodo)
+        
      
                 
     }
@@ -71,6 +73,7 @@ const Formulario = () => {
                 
                 >Enviar</button> 
             </form>
+
             
 
             
@@ -78,12 +81,14 @@ const Formulario = () => {
                 disabled={datos ? "" : "disabled"}
                 type="submit"
                 
+                
                 onClick={borrarDatos}
             >Borrar</button>
             <ul>
                 <li>{datos.nombre}</li>
                 <li>{datos.apellido}</li>
                 <li>{datos.apodo}</li>
+
 
             </ul>
         </Fragment>
