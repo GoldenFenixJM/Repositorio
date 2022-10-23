@@ -31,20 +31,22 @@ export const Trending = () => {
       const selectedOption2=value.value
       setSelectedOption2(selectedOption2);
     }
-
-
-
-  
   return (
     <div className='container row row-cols-1 row-cols-md-3 g-3'>
-      <Select
-      options={Opciones}
-      onChange={handleChange}
-      />
-      <Select
-      options={Opciones2}
-      onChange={handleChange2}
-      />
+      <select name="select">
+        <option value="all">All</option>
+        <option value="movie">Movie</option>
+        <option value="tv">TV</option>
+        <option value="person">Person</option>
+        onChange={handleChange}
+</select>
+      
+      <select name="select">
+        <option value="day">Day</option>
+        <option value="week">Week</option>
+        onChange={handleChange2}
+</select>
+      
        {movies.map((movie)=>
       <MovieCard 
         key={movie.id} 
